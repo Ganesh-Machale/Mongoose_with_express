@@ -6,6 +6,15 @@
     <title>Whatsapp</title>
 </head>
 <body>
-    
+    <h3>All chats</h3>
+    <% for(let chat of chats){ %>
+        <div class="chat">
+               <p><%=From : chat.from %></p>
+           <div class="msg">
+               <p>Message: <%= chat.msg</p>
+           </div>
+               <p>Recived By: <%= chat.id %> </p>
+        </div>
+    <% } %>
 </body>
 </html>
