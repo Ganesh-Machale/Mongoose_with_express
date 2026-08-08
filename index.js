@@ -7,6 +7,7 @@ const Chat = require("./Models/chat.js");
   app.set("views",path.join(__dirname,"views"));
    app.set("view engine","ejs");
    app.use(express.static(path.join(__dirname,"public")));
+   app.use(express.urlencoded({extended: true}));
    
 main()
 .then((res)=>{
@@ -32,6 +33,28 @@ async function main() {
      app.get("/chats/new",(req,res)=>{
          res.render("new.ejs");
      })
+
+     // Create Route with the help of Post request 
+     app.post("/chats",(req,res)=>{
+      let { from , to , msg } = req.body;
+       let newChat = new Chat({
+        from:from,
+        to:to,
+        msg:msg,
+        created_at: new Date(),
+       })
+
+         newChat.save()
+             .then((res)=>{
+              console.log(res);
+             })
+             .catch((err)=>{
+              console.log(err);
+             });
+
+         console.log("Chat was Sended :");
+     });
+
 
   app.listen(8080,(req,res)=>{
     console.log("server is runing on port 8080");
