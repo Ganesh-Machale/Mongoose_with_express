@@ -51,7 +51,7 @@ async function main() {
              .catch((err)=>{
               console.log(err);
              });
-
+  res.redirect("/chats");
          console.log("Chat was Sended :");
      });
 
