@@ -30,7 +30,7 @@ async function main() {
 
     //  New Route for creating the New chat
      app.get("/chats/new",(req,res)=>{
-      
+         res.render("new.ejs");
      })
 
   app.listen(8080,(req,res)=>{
