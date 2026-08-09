@@ -2,12 +2,14 @@ const express = require("express");
   const app = express();
   const path = require("path");
 const mongoose = require('mongoose');
+const methodOverride = require("method-override");
 const Chat = require("./Models/chat.js");
 
   app.set("views",path.join(__dirname,"views"));
    app.set("view engine","ejs");
    app.use(express.static(path.join(__dirname,"public")));
    app.use(express.urlencoded({extended: true}));
+   app.use(methodOverride("_method"));
    
 main()
 .then((res)=>{
@@ -60,7 +62,16 @@ async function main() {
               let { id } = req.params;
               let chat = await Chat.findById(id);
                  res.render("edit.ejs",{chat});
-       })
+       });
+
+      //  Update Route for updating the msg in Db
+         app.put("/chats/:id", async (req,res)=>{
+          let { id } = req.params;
+          let { msg : newmsg } = req.body;
+            let updatedChat = await Chat.findByIdAndUpdate(id,{msg: newmsg},{runValidators:true},{new:true});
+            console.log(updatedChat);
+            res.redirect("/chats");
+         })
 
 
   app.listen(8080,(req,res)=>{
