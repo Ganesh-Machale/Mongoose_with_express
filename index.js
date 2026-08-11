@@ -27,7 +27,6 @@ async function main() {
    // Index Route
      app.get("/chats",async (req,res)=>{
       let chats = await Chat.find();
-      console.log(chats);
       res.render("index.ejs",{chats}); 
      });
 
@@ -73,6 +72,13 @@ async function main() {
             res.redirect("/chats");
          })
 
+      // Destroy Route 
+         app.delete("/chats/:id",async(req,res)=>{
+             let { id } = req.params;
+             let deletedchat = await Chat.findByIdAndDelete(id);
+             console.log(deletedchat);
+             res.redirect("/chats");
+         });
 
   app.listen(8080,(req,res)=>{
     console.log("server is runing on port 8080");
