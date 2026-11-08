@@ -1,225 +1,178 @@
-# 🚀 Mongoose with Express.js
+🏡 WanderLust – Property Listing Web Application
 
-A beginner-friendly **Node.js backend project** demonstrating how to integrate **Express.js, MongoDB, and Mongoose** to perform database operations and implement CRUD functionality.
+WanderLust is a full-stack web application designed to display and manage property listings. It provides a platform for exploring properties and demonstrates how backend technologies can be integrated with a dynamic frontend.
 
-This project was created to understand how a backend server communicates with MongoDB using Mongoose.
+The project is developed using Node.js, Express.js, MongoDB, Mongoose, and EJS, following an organized MVC-style architecture.
 
----
+📌 Project Overview
 
-## 📌 Project Overview
+WanderLust is a web development project focused on building a property listing platform using server-side rendering.
 
-This project demonstrates the basic workflow of building a backend application using:
+It demonstrates how users can interact with property listing pages while the backend manages application logic, database operations, and dynamic content rendering.
 
-* **Node.js** – JavaScript runtime environment
-* **Express.js** – Backend web framework
-* **MongoDB** – NoSQL database
-* **Mongoose** – ODM for MongoDB
+✨ Features
 
-The project focuses on creating schemas and models, connecting to MongoDB, and performing database operations such as **Create, Read, Update, and Delete (CRUD)**.
+- Property listing management.
+- Dynamic property pages.
+- MongoDB database integration.
+- Mongoose schemas and models.
+- Express.js routing and middleware.
+- EJS dynamic templating.
+- Reusable EJS layouts and components.
+- Organized MVC-style project structure.
+- Custom CSS styling.
+- Server-side rendering.
 
----
+🛠️ Technologies Used
 
-## ✨ Features
+Technology| Purpose
+Node.js| JavaScript runtime
+Express.js| Backend framework
+MongoDB| NoSQL database
+Mongoose| Database modeling
+EJS| Dynamic HTML templating
+HTML5| Web page structure
+CSS3| Styling
+JavaScript| Application logic
+Git & GitHub| Version control
 
-* 🔗 Connect Express.js with MongoDB
-* 📋 Create Mongoose schemas and models
-* ➕ Insert documents into MongoDB
-* 🔍 Retrieve documents from MongoDB
-* ✏️ Update existing documents
-* 🗑️ Delete documents
-* ⚡ Perform basic CRUD operations
-* 🌐 Use Express.js for backend development
-* 📁 Understand basic backend project structure
+📂 Project Structure
 
----
-
-## 🛠️ Technologies Used
-
-| Technology     | Purpose              |
-| -------------- | -------------------- |
-| **Node.js**    | JavaScript runtime   |
-| **Express.js** | Backend framework    |
-| **MongoDB**    | Database             |
-| **Mongoose**   | MongoDB ODM          |
-| **JavaScript** | Programming language |
-| **Nodemon**    | Development server   |
-
----
-
-## 📂 Project Structure
-
-```text
-Mongoose_with_express/
+Major_Project/
 │
-├── Models/
-│   └── model.js
+├── init/
+│   └── Database initialization
 │
-├── Public/
+├── models/
+│   └── listing.js
+│
+├── public/
+│   └── css/
+│       └── Stylesheets
+│
+├── utils/
+│   └── Utility functions
 │
 ├── views/
+│   ├── includes/
+│   │   └── Reusable components
+│   │
+│   ├── layouts/
+│   │   └── EJS layouts
+│   │
+│   └── listings/
+│       └── Listing pages
 │
-├── index.js
-├── init.js
+├── app.js
 ├── package.json
 ├── package-lock.json
-├── .gitignore
 └── README.md
-```
 
----
+🚀 Installation and Setup
 
-## ⚙️ Installation & Setup
+Follow these steps to run WanderLust on your local machine.
 
-### 1. Clone the Repository
+Prerequisites
 
-```bash
-git clone https://github.com/Ganesh-Machale/Mongoose_with_express.git
-```
+Make sure you have installed:
 
-### 2. Navigate to the Project
+- Node.js
+- npm
+- MongoDB or MongoDB Atlas
+- Visual Studio Code (recommended)
 
-```bash
-cd Mongoose_with_express
-```
+Step 1: Clone the Repository
 
-### 3. Install Dependencies
+git clone https://github.com/Ganesh-Machale/Major_Project.git
 
-```bash
+Step 2: Navigate to the Project Folder
+
+cd Major_Project
+
+Step 3: Install Dependencies
+
 npm install
-```
 
-### 4. Start MongoDB
+Step 4: Configure MongoDB
 
-Make sure MongoDB is installed and running on your local machine.
+Ensure MongoDB is running and check the database connection configuration in "app.js".
 
-If you are using **MongoDB Compass**, make sure your MongoDB server is running before starting the application.
+If required, configure your MongoDB connection string using environment variables.
 
-### 5. Start the Application
+Step 5: Start the Application
 
-```bash
-node index.js
-```
+node app.js
 
-For development with Nodemon:
+Step 6: Open in Browser
 
-```bash
-nodemon index.js
-```
+Visit the local address configured in your application.
 
----
+For example:
 
-## 🔄 CRUD Operations
+http://localhost:3000
 
-### ➕ Create
+⚙️ How the Application Works
 
-Create a new document using a Mongoose model:
+1. The user accesses the application through a browser.
+2. Express.js receives HTTP requests.
+3. The application processes requests using routes and controllers.
+4. Mongoose communicates with MongoDB.
+5. Database information is passed to EJS templates.
+6. EJS dynamically generates HTML pages.
+7. The browser displays the rendered content.
 
-```javascript
-const student = new Student({
-    name: "Ganesh",
-    age: 20
-});
+🧠 Key Concepts Learned
 
-await student.save();
-```
+- Backend development with Node.js.
+- Express.js routing and middleware.
+- MongoDB database connectivity.
+- Mongoose schemas and models.
+- CRUD operations.
+- Dynamic rendering using EJS.
+- MVC architecture.
+- Reusable layouts and components.
+- Full-stack web application development.
 
----
+🔮 Future Enhancements
 
-### 🔍 Read
+- User registration and authentication.
+- Property search and filtering.
+- Add, edit, and delete property listings.
+- Property image uploads.
+- User reviews and ratings.
+- Location-based property search.
+- Responsive user interface.
+- Deployment to a cloud platform.
 
-Retrieve documents from MongoDB:
+🎯 Project Objectives
 
-```javascript
-const students = await Student.find();
-```
+- Understand full-stack web development.
+- Build a dynamic property listing application.
+- Learn database integration using MongoDB.
+- Implement server-side rendering with EJS.
+- Develop practical backend programming skills.
+- Understand how different application components work together.
 
----
+👨‍💻 Author
 
-### ✏️ Update
+Ganesh Machale
 
-Update an existing document:
+B.Tech – Computer Science & Engineering
 
-```javascript
-await Student.updateOne(
-    { name: "Ganesh" },
-    { age: 21 }
-);
-```
+MIT Art, Design and Technology University, Pune
 
----
+GitHub: "Ganesh-Machale" (https://github.com/Ganesh-Machale)
 
-### 🗑️ Delete
+🔗 Project Repository
 
-Delete a document:
+"WanderLust – Major Project" (https://github.com/Ganesh-Machale/Major_Project)
 
-```javascript
-await Student.deleteOne({
-    name: "Ganesh"
-});
-```
+⭐ Support
 
----
+If you find this project useful, consider giving the repository a star on GitHub.
 
-## 📚 What I Learned
-
-Through this project, I learned:
-
-* How Node.js works with Express.js
-* How to connect MongoDB with a Node.js application
-* How to create Mongoose schemas
-* How to create and use Mongoose models
-* How to insert documents into MongoDB
-* How to retrieve data using queries
-* How to update documents
-* How to delete documents
-* How CRUD operations work in a backend application
+Suggestions and contributions are always welcome.
 
 ---
 
-## 🎯 Future Improvements
-
-Some features that can be added in the future:
-
-* [ ] RESTful API endpoints
-* [ ] Input validation
-* [ ] Better error handling
-* [ ] Environment variables using `.env`
-* [ ] MVC architecture
-* [ ] Authentication and authorization
-* [ ] JWT-based authentication
-* [ ] Frontend integration using React.js
-* [ ] Deployment to a cloud platform
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-If you want to improve this project:
-
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Commit your changes
-5. Push the branch
-6. Create a Pull Request
-
----
-
-## 👨‍💻 Author
-
-**Ganesh Machale**
-
-🎓 B.Tech Computer Science & Engineering
-
-GitHub:
-https://github.com/Ganesh-Machale
-
----
-
-## ⭐ Support
-
-If you found this project useful for learning **Node.js, Express.js, MongoDB, or Mongoose**, consider giving the repository a ⭐ Star.
-
-**Happy Coding! 🚀**
+Developed by Ganesh Machale | Built with Node.js, Express.js, MongoDB & EJS
